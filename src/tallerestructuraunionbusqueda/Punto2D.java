@@ -4,31 +4,37 @@
  */
 package tallerestructuraunionbusqueda;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Arrays;
-import edu.princeton.cs.algs4.StdOut;
+
 
 /**
  *
  * @author jstca
  */
-public class Punto2D {
+public class Punto2D 
+{
 	
 	// Representacion del ADT
 	private double x;
 	private double y;
+        private String representante; 
+        private String nombre;
+        private boolean areConnected; //TO DO: Revisar qué tan necesario y eficiente es tener esta variable, además de posibles usos
+        final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
 	
 	// Constructores
 	public Punto2D() {
             this.x=0;
             this.y=0;
-        }	// Crea el punto (0,0)
+            
+        }// Crea el punto (0,0)
 	
-	public Punto2D(double x, double y) {
+        //TO DO: Evaluar si usar un nombre para cada punto es funcional, necesario y eficiente
+	public Punto2D(double x, double y, String nombre) { 
 		this.x = x;
 		this.y = y;
+                this.nombre = nombre;
+                representante = nombre; // Cada punto se tendrá inicialmente a sí mismo como 
+                boolean areConnectec = false;
 	}
 	
 	// API del ADT
@@ -40,25 +46,45 @@ public class Punto2D {
 		return y;
 	}
 	
+        public String getNombre(){
+            return nombre;
+        }
 	public double distancia(Punto2D p) {
 		return Math.sqrt( (x-p.getX())*(x-p.getX()) + (y-p.getY())*(y-p.getY()) );
 	}
         
+        //TO DO: Revisar como funciona el método al introducir ambos punto.
         public Boolean IsConnected(Punto2D a, Punto2D b)
         {
-            //Se revisará si los dos puntos especificados están conectados
-            return false;
+            //Se revisará si el punto está conectado con el especificado mediante el representante que tengan
+            if(a.getNombre()==b.getNombre()) 
+                return true;    
+            else
+                return false;
+            
         }
 	
-        public Punto2D find(Punto2D a)
+        //TO DO: Revisar si es mejor que devuelva el nombre o el punto 2D al que se está conectado
+        //TO DO: Hacer que funcione para un conjunto, después de hacer el conjunto claro xd
+        public String find()
         {
-            //Se buscará el representante del conjunto al que pertenece el punto a
-           return a;
+            //Se buscará el representante del conjunto al que pertenece el punto a, si está sola me devuelve su nombre
+           return nombre;
         }
         
+        
+        //TO DO: Revisar qué se hace en caso de que esté más lejos que DMAX
         public void union(Punto2D a, Punto2D b)
         {
             //Creará una nueva conexión entre dos puntos 2D
+            //a.getNombre();
+            //b.getNombre();
+            //Se unirá si la distancia entre ambos puntos es menora una establecida.
+            if(a.distancia(b) >= DMAX)
+                //Se establece como "padre" de a, b
+                a.nombre = b.nombre;
+           
+            
         }
         
         public int count()
@@ -96,45 +122,4 @@ public class Punto2D {
 
         
 	public static final String SEPARADOR = ",";
-        
-        //public void lectorArchivos(){
-        public static void main(String[] args) {
-
-         BufferedReader bufferLectura = null;
-         try {
-          // Abrir el .csv en buffer de lectura
-          bufferLectura = new BufferedReader(new FileReader("C:\\Users\\Julian Gómez\\OneDrive - UPB\\Universidad\\4 - Cuarto Semestre\\Estructura de Datos y Algoritmos\\Taller 3\\TallerEstructuraUnionBusqueda"));
-
-          // Leer una linea del archivo
-          String linea = bufferLectura.readLine();
-
-          while (linea != null) {
-           // Sepapar la linea leída con el separador definido previamente
-           String[] campos = linea.split(SEPARADOR); 
-
-           StdOut.println(Arrays.toString(campos));
-
-           // Volver a leer otra línea del fichero
-           linea = bufferLectura.readLine();
-          }
-         } 
-         catch (IOException e) {
-          e.printStackTrace();
-         }
-         finally {
-          // Cierro el buffer de lectura
-          if (bufferLectura != null) {
-           try {
-            bufferLectura.close();
-           } 
-           catch (IOException e) {
-            e.printStackTrace();
-           }
-          }
-         }
-         
-    }
-        
-        
-        
-}
+ }       
