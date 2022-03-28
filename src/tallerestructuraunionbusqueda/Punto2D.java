@@ -12,12 +12,13 @@ package tallerestructuraunionbusqueda;
  */
 public class Punto2D 
 {
+        //En la clase #11 del curso, vimos la estructura Union-Find, se nos habló de su funcionamiento y se especificó el API a implementar
 	
 	// Representacion del ADT
 	private double x;
 	private double y;
         private String representante; 
-        private String nombre;
+        private String nombre; //Se le da un nombre al punto
         private boolean areConnected; //TO DO: Revisar qué tan necesario y eficiente es tener esta variable, además de posibles usos
         final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
 	
@@ -29,12 +30,12 @@ public class Punto2D
         }// Crea el punto (0,0)
 	
         //TO DO: Evaluar si usar un nombre para cada punto es funcional, necesario y eficiente
-	public Punto2D(double x, double y, String nombre) { 
+	public Punto2D(double x, double y, String nombre) { //Se pide a la hora de crear un punto el valor de x, y y el nombre (de momento)
 		this.x = x;
 		this.y = y;
                 this.nombre = nombre;
                 representante = nombre; // Cada punto se tendrá inicialmente a sí mismo como 
-                boolean areConnectec = false;
+                boolean areConnectec = false; //Por revisar
 	}
 	
 	// API del ADT
@@ -57,11 +58,10 @@ public class Punto2D
         public Boolean IsConnected(Punto2D a, Punto2D b)
         {
             //Se revisará si el punto está conectado con el especificado mediante el representante que tengan
-            if(a.getNombre()==b.getNombre()) 
+            if(a.getNombre()==b.getNombre()) //Un punto se conecta a otro cambiando su representante por el de su padre 
                 return true;    
             else
                 return false;
-            
         }
 	
         //TO DO: Revisar si es mejor que devuelva el nombre o el punto 2D al que se está conectado
@@ -74,7 +74,7 @@ public class Punto2D
         
         
         //TO DO: Revisar qué se hace en caso de que esté más lejos que DMAX
-        public void union(Punto2D a, Punto2D b)
+        public void union(Punto2D a, Punto2D b) //Para unir dos puntos se cambia el representante de uno de ellos
         {
             //Creará una nueva conexión entre dos puntos 2D
             //a.getNombre();
@@ -87,7 +87,7 @@ public class Punto2D
             
         }
         
-        public int count()
+        public int count() //Esto se usa para los conjuntos, no funciona de momento.
         {
             //Contará la cantidad total de componentes que hay
             int totalComponentes = 0;
@@ -121,5 +121,5 @@ public class Punto2D
         public static final double TOL = 1E-12;
 
         
-	public static final String SEPARADOR = ",";
+	
  }       
