@@ -23,6 +23,7 @@ public class TallerEstructuraUnionBusqueda {
         
         //Switch con opciones para determinar tamaño de n de cada vector a crear.
         String respuesta = "";
+        Punto2D[] puntos = null; // Arreglo de puntos leidos del archivo
         
         StdOut.println("Para crear el vector, ingrese el número del tamaño que desea según las opciones dadas para el vector de Puntos2D:\n");
         StdOut.println("Los tamaños soportados son de: \n");
@@ -39,24 +40,31 @@ public class TallerEstructuraUnionBusqueda {
                 {
                     case "1": 
                         File doc = new File("ejemplos\\datapoints-100.csv");
+                         puntos = new Punto2D[100];
                         break;
                     case "2":
                         File doc1 = new File("ejemplos\\datapoints-120.csv");
+                        puntos = new Punto2D[120];
                         break;
                     case "3":
                         File doc2 = new File("ejemplos\\datapoints-150.csv");
+                        puntos = new Punto2D[150];
                         break;
                     case "4":
                         File doc3 = new File("ejemplos\\datapoints-200.csv");
+                        puntos = new Punto2D[200];
                         break;
                     case "5":
                         File doc4 = new File("ejemplos\\datapoints-1000.csv");
+                        puntos = new Punto2D[1000];
                         break;
                     case "6":
                         File doc5 = new File("ejemplos\\datapoints-2500.csv");
+                        puntos = new Punto2D[2500];
                         break;
                     case "7":
                         File doc6 = new File("ejemplos\\datapoints-5000.csv");
+                        puntos = new Punto2D[5000];
                         break;
                     default:
                         break;
@@ -72,6 +80,7 @@ public class TallerEstructuraUnionBusqueda {
             File doc = new File("ejemplos\\datapoints-100.csv");
 
             try{
+                int counter = 0;//Contador de puntos
 
                 // Abrir el .csv en buffer de lectura
                 bufferLectura = new BufferedReader(new FileReader("ejemplos\\datapoints-100.csv"));
@@ -84,8 +93,8 @@ public class TallerEstructuraUnionBusqueda {
                       String[] campos = linea.split(SEPARADOR); 
                       Punto2D punto = new Punto2D(Double.parseDouble(campos[0]),Double.parseDouble(campos[1]));
 
-                      //FALTA GUARDAR LOS PUNTOS
-
+                      puntos[counter] = punto;
+                      counter ++;
                       // Volver a leer otra línea del fichero
                       linea = bufferLectura.readLine();
                      }
