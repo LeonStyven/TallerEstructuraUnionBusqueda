@@ -12,14 +12,15 @@ public class ConjuntoPuntos {
     
     //variables para el uso del conjunto
     private int n;
+    private int count;
     private Punto2D[] conjunto;
     private int[] parent;
     private int[] size;
 
     //Constructor pasandole un arrego de puntos
-    public ConjuntoPuntos(Punto2D[] conjunto)
+    public ConjuntoPuntos(Punto2D[] conjunto, int n)
     {
-        
+        count = n;
         this.conjunto = conjunto;
         parent = new int[conjunto.length];
         size = new int[conjunto.length];
@@ -48,9 +49,12 @@ public class ConjuntoPuntos {
         
         return result;
     }
-    /*public int Count(){
+    public int Count(Punto2D p)
+    {
+        //Cuenta cuántos puntos totales hay
+        return count;
         
-    }*/
+    }
     
     //Para unir dos puntos se cambia el representante de uno de ellos
     public void union(Punto2D p, Punto2D q) 
@@ -69,7 +73,8 @@ public class ConjuntoPuntos {
             parent[rootQ] = rootP;
             size[rootP] += size[rootQ];
         }
-        //count--;
+        //Resta a la cantidad total de arboles los que ya están conectados
+        count--;
 
     }
     
