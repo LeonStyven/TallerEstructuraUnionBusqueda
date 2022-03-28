@@ -40,50 +40,59 @@ public class TallerEstructuraUnionBusqueda {
                 {
                     case "1": 
                         File doc = new File("ejemplos\\datapoints-100.csv");
+                        leerArchivo(doc);
                          puntos = new Punto2D[100];
                         break;
                     case "2":
                         File doc1 = new File("ejemplos\\datapoints-120.csv");
+                        leerArchivo(doc1);
                         puntos = new Punto2D[120];
                         break;
                     case "3":
                         File doc2 = new File("ejemplos\\datapoints-150.csv");
+                        leerArchivo(doc2);
                         puntos = new Punto2D[150];
                         break;
                     case "4":
                         File doc3 = new File("ejemplos\\datapoints-200.csv");
+                        leerArchivo(doc3);
                         puntos = new Punto2D[200];
                         break;
                     case "5":
                         File doc4 = new File("ejemplos\\datapoints-1000.csv");
+                        leerArchivo(doc4);
                         puntos = new Punto2D[1000];
                         break;
                     case "6":
                         File doc5 = new File("ejemplos\\datapoints-2500.csv");
+                        leerArchivo(doc5);
                         puntos = new Punto2D[2500];
                         break;
                     case "7":
                         File doc6 = new File("ejemplos\\datapoints-5000.csv");
+                        leerArchivo(doc6);
                         puntos = new Punto2D[5000];
                         break;
                     default:
+                        StdOut.println("Ha ingresado una opción inválida.");
                         break;
                 }
         
-        
-        
+        }
+        public static void leerArchivo(File doc){
             //Obtener el archivo separado por comas
             BufferedReader bufferLectura = null;
+            Punto2D[] puntos = null; // Arreglo de puntos leidos del archivo
             final String SEPARADOR = ",";
 
             //FALTA HACER QUE SE SELECCIONE
-            File doc = new File("ejemplos\\datapoints-100.csv");
+            //File doc = new File("//ejemplos\\datapoints-100.csv"); 
 
             try{
                 int counter = 0;//Contador de puntos
 
                 // Abrir el .csv en buffer de lectura
-                bufferLectura = new BufferedReader(new FileReader("ejemplos\\datapoints-100.csv"));
+                bufferLectura = new BufferedReader(new FileReader(doc)); //ejemplos\\datapoints-100.csv
 
                 // Leer una linea del archivo
                 String linea = bufferLectura.readLine();
@@ -105,8 +114,8 @@ public class TallerEstructuraUnionBusqueda {
             finally{
                 StdIn.readLine();
             }
+            
         }
-
 
     }
 /*
