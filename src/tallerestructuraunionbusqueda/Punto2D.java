@@ -8,7 +8,8 @@ package tallerestructuraunionbusqueda;
 
 /**
  *
- * @author jstca
+ * @author Julian Esteban Gómez Lopez - Julian Styven Colorado Agudelo
+ * @IDs 000438304 - 000420606
  */
 public class Punto2D 
 {	
@@ -38,50 +39,15 @@ public class Punto2D
 	public double getY() {
 		return y;
 	}
+        public String getRepresentante(){
+            return representante;
+        }
 
 	public double distancia(Punto2D p) {
 		return Math.sqrt( (x-p.getX())*(x-p.getX()) + (y-p.getY())*(y-p.getY()) );
 	}
+
         
-        //TO DO: Revisar como funciona el método al introducir ambos punto.
-        public Boolean IsConnected(Punto2D a)
-        {
-            //Se revisará si el punto está conectado con el especificado mediante el representante que tengan
-            if(this.representante.equals(a.representante)) //Un punto se conecta a otro cambiando su representante por el de su padre 
-                return true;    
-            else
-                return false;
-        }
-	
-        //TO DO: Revisar si es mejor que devuelva el nombre o el punto 2D al que se está conectado
-        //TO DO: Hacer que funcione para un conjunto, después de hacer el conjunto claro xd
-        public String find()
-        {
-            //Se buscará el representante del conjunto al que pertenece el punto a, si está sola me devuelve su nombre
-           return nombre;
-        }
-        
-        
-        //TO DO: Revisar qué se hace en caso de que esté más lejos que DMAX
-        public void union(Punto2D a, Punto2D b) //Para unir dos puntos se cambia el representante de uno de ellos
-        {
-            //Creará una nueva conexión entre dos puntos 2D
-            //a.getNombre();
-            //b.getNombre();
-            //Se unirá si la distancia entre ambos puntos es menora una establecida.
-            if(a.distancia(b) >= DMAX)
-                //Se establece como "padre" de a, b
-                a.nombre = b.nombre;
-           
-            
-        }
-        
-        public int count() //Esto se usa para los conjuntos, no funciona de momento.
-        {
-            //Contará la cantidad total de componentes que hay
-            int totalComponentes = 0;
-            return totalComponentes;
-        }
         
         
 	
