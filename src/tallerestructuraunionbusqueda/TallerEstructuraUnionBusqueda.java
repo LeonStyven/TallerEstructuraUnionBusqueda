@@ -21,40 +21,85 @@ public class TallerEstructuraUnionBusqueda {
      */
     public static void main(String[] args) {
         
-        //Obtener el archivo separado por comas
-        BufferedReader bufferLectura = null;
-        final String SEPARADOR = ",";
+        //Switch con opciones para determinar tamaño de n de cada vector a crear.
+        String respuesta = "";
         
-        //FALTA HACER QUE SE SELECCIONE
-        File doc = new File("ejemplos\\datapoints-100.csv");
-            
-        try{
-            
-            // Abrir el .csv en buffer de lectura
-            bufferLectura = new BufferedReader(new FileReader("ejemplos\\datapoints-100.csv"));
-            
-            // Leer una linea del archivo
-            String linea = bufferLectura.readLine();
-                       
-            while (linea != null) {
-                  // Sepapar la linea leída con el separador definido previamente
-                  String[] campos = linea.split(SEPARADOR); 
-                  Punto2D punto = new Punto2D(Double.parseDouble(campos[0]),Double.parseDouble(campos[1]));
-                  
-                  //FALTA GUARDAR LOS PUNTOS
+        StdOut.println("Para crear el vector, ingrese el número del tamaño que desea según las opciones dadas para el vector de Puntos2D:\n");
+        StdOut.println("Los tamaños soportados son de: \n");
+        StdOut.println("1. 100\n");
+        StdOut.println("2. 120\n");
+        StdOut.println("3. 150\n");
+        StdOut.println("4. 200\n");
+        StdOut.println("5. 1000\n");
+        StdOut.println("6. 2500\n");
+        StdOut.println("7. 5000\n");
+        
+        
+        switch(respuesta)
+                {
+                    case "1": 
+                        File doc = new File("ejemplos\\datapoints-100.csv");
+                        break;
+                    case "2":
+                        File doc1 = new File("ejemplos\\datapoints-120.csv");
+                        break;
+                    case "3":
+                        File doc2 = new File("ejemplos\\datapoints-150.csv");
+                        break;
+                    case "4":
+                        File doc3 = new File("ejemplos\\datapoints-200.csv");
+                        break;
+                    case "5":
+                        File doc4 = new File("ejemplos\\datapoints-1000.csv");
+                        break;
+                    case "6":
+                        File doc5 = new File("ejemplos\\datapoints-2500.csv");
+                        break;
+                    case "7":
+                        File doc6 = new File("ejemplos\\datapoints-5000.csv");
+                        break;
+                    default:
+                        break;
+                }
+        
+        
+        
+            //Obtener el archivo separado por comas
+            BufferedReader bufferLectura = null;
+            final String SEPARADOR = ",";
 
-                  // Volver a leer otra línea del fichero
-                  linea = bufferLectura.readLine();
-                 }
-        }catch(Exception error){
-            StdOut.print("An error has been ocurred. Code: " + error);
+            //FALTA HACER QUE SE SELECCIONE
+            File doc = new File("ejemplos\\datapoints-100.csv");
+
+            try{
+
+                // Abrir el .csv en buffer de lectura
+                bufferLectura = new BufferedReader(new FileReader("ejemplos\\datapoints-100.csv"));
+
+                // Leer una linea del archivo
+                String linea = bufferLectura.readLine();
+
+                while (linea != null) {
+                      // Sepapar la linea leída con el separador definido previamente
+                      String[] campos = linea.split(SEPARADOR); 
+                      Punto2D punto = new Punto2D(Double.parseDouble(campos[0]),Double.parseDouble(campos[1]));
+
+                      //FALTA GUARDAR LOS PUNTOS
+
+                      // Volver a leer otra línea del fichero
+                      linea = bufferLectura.readLine();
+                     }
+                
+            }catch(Exception error){
+                StdOut.print("An error has been ocurred. Code: " + error);
+            }
+            finally{
+                StdIn.readLine();
+            }
         }
-        finally{
-            StdIn.readLine();
-        }
+
+
     }
-    
-}
 /*
         //TO DO: Revisar qué se hace en caso de que esté más lejos que DMAX
         public void union(Punto2D a, Punto2D b) //Para unir dos puntos se cambia el representante de uno de ellos
