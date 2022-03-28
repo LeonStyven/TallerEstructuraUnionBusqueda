@@ -17,7 +17,7 @@ public class Punto2D
 	private double x;
 	private double y;
         private String representante; 
-        //final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
+        final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
 	
 	// Constructores
 	public Punto2D() {
