@@ -11,7 +11,8 @@ import java.io.FileReader;
 
 /**
  *
- * @author jstca
+ * @author Julian Esteban Gómez Lopez - Julian Styven Colorado Agudelo
+ * @IDs 000438304 - 000420606
  */
 public class TallerEstructuraUnionBusqueda {
 
