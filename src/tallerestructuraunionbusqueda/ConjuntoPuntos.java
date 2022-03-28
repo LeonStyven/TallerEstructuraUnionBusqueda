@@ -13,9 +13,9 @@ import java.util.Arrays;
  */
 public class ConjuntoPuntos {
         //private String[] conjuntoPuntos; //Para cuando se lea el archivo
-        Punto2D punto1 = new Punto2D(1,1,"A");
-        Punto2D punto2 = new Punto2D(2,2,"A");
-        Punto2D punto3 = new Punto2D(3,3,"A");
+        Punto2D punto1 = new Punto2D(1,1);
+        Punto2D punto2 = new Punto2D(2,2);
+        Punto2D punto3 = new Punto2D(3,3);
         
         
         

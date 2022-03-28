@@ -20,6 +20,8 @@ public class TallerEstructuraUnionBusqueda {
      */
     public static void main(String[] args) {
         
+        
+        
         BufferedReader bufferLectura = null;
         final String SEPARADOR = ",";
         File doc = new File("ejemplos\\datapoints-100.csv");
@@ -36,7 +38,7 @@ public class TallerEstructuraUnionBusqueda {
             while (linea != null) {
                   // Sepapar la linea leída con el separador definido previamente
                   String[] campos = linea.split(SEPARADOR); 
-                  Punto2D punto = new Punto2D(Double.parseDouble(campos[0]),Double.parseDouble(campos[1]),"A");
+                  Punto2D punto = new Punto2D(Double.parseDouble(campos[0]),Double.parseDouble(campos[1]));
                   
 
                   // Volver a leer otra línea del fichero
@@ -51,3 +53,27 @@ public class TallerEstructuraUnionBusqueda {
     }
     
 }
+/*
+        //TO DO: Revisar qué se hace en caso de que esté más lejos que DMAX
+        public void union(Punto2D a, Punto2D b) //Para unir dos puntos se cambia el representante de uno de ellos
+        {
+            //Creará una nueva conexión entre dos puntos 2D
+            //a.getNombre();
+            //b.getNombre();
+            //Se unirá si la distancia entre ambos puntos es menora una establecida.
+            if(a.distancia(b) >= DMAX)
+                //Se establece como "padre" de a, b
+                a.nombre = b.nombre;
+           
+            
+        }
+        
+        
+        public int count() //Esto se usa para los conjuntos, no funciona de momento.
+        {
+            //Contará la cantidad total de componentes que hay
+            int totalComponentes = 0;
+            return totalComponentes;
+        }
+        
+*/

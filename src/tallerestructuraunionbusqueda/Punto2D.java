@@ -11,16 +11,12 @@ package tallerestructuraunionbusqueda;
  * @author jstca
  */
 public class Punto2D 
-{
-        //En la clase #11 del curso, vimos la estructura Union-Find, se nos habló de su funcionamiento y se especificó el API a implementar
-	
+{	
 	// Representacion del ADT
 	private double x;
 	private double y;
         private String representante; 
-        private String nombre; //Se le da un nombre al punto
-        private boolean areConnected; //TO DO: Revisar qué tan necesario y eficiente es tener esta variable, además de posibles usos
-        final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
+        //final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
 	
 	// Constructores
 	public Punto2D() {
@@ -30,35 +26,28 @@ public class Punto2D
         }// Crea el punto (0,0)
 	
         //TO DO: Evaluar si usar un nombre para cada punto es funcional, necesario y eficiente
-	public Punto2D(double x, double y, String nombre) { //Se pide a la hora de crear un punto el valor de x, y y el nombre (de momento)
+	public Punto2D(double x, double y) { //Se pide a la hora de crear un punto el valor de x, y y el nombre (de momento)
 		this.x = x;
 		this.y = y;
-                this.nombre = nombre;
-                representante = nombre; // Cada punto se tendrá inicialmente a sí mismo como 
-                boolean areConnectec = false; //Por revisar
 	}
 	
 	// API del ADT
 	public double getX() {
 		return x;
 	}
-	
 	public double getY() {
 		return y;
 	}
-	
-        public String getNombre(){
-            return nombre;
-        }
+
 	public double distancia(Punto2D p) {
 		return Math.sqrt( (x-p.getX())*(x-p.getX()) + (y-p.getY())*(y-p.getY()) );
 	}
         
         //TO DO: Revisar como funciona el método al introducir ambos punto.
-        public Boolean IsConnected(Punto2D a, Punto2D b)
+        public Boolean IsConnected(Punto2D a)
         {
             //Se revisará si el punto está conectado con el especificado mediante el representante que tengan
-            if(a.getNombre()==b.getNombre()) //Un punto se conecta a otro cambiando su representante por el de su padre 
+            if(this.representante.equals(a.representante)) //Un punto se conecta a otro cambiando su representante por el de su padre 
                 return true;    
             else
                 return false;
