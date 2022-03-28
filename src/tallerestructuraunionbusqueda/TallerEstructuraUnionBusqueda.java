@@ -21,10 +21,11 @@ public class TallerEstructuraUnionBusqueda {
      */
     public static void main(String[] args) {
         
-        
-        
+        //Obtener el archivo separado por comas
         BufferedReader bufferLectura = null;
         final String SEPARADOR = ",";
+        
+        //FALTA HACER QUE SE SELECCIONE
         File doc = new File("ejemplos\\datapoints-100.csv");
             
         try{
@@ -34,13 +35,13 @@ public class TallerEstructuraUnionBusqueda {
             
             // Leer una linea del archivo
             String linea = bufferLectura.readLine();
-            
-            
+                       
             while (linea != null) {
                   // Sepapar la linea leída con el separador definido previamente
                   String[] campos = linea.split(SEPARADOR); 
                   Punto2D punto = new Punto2D(Double.parseDouble(campos[0]),Double.parseDouble(campos[1]));
                   
+                  //FALTA GUARDAR LOS PUNTOS
 
                   // Volver a leer otra línea del fichero
                   linea = bufferLectura.readLine();
