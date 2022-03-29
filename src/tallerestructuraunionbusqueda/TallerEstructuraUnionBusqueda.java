@@ -23,12 +23,11 @@ public class TallerEstructuraUnionBusqueda {
         
         //Switch con opciones para determinar tamaño de n de cada vector a crear.
         int respuesta;
-        String sRespuesta;
+        //String sRespuesta;
         Punto2D[] puntos = null; // Arreglo de puntos leidos del archivo
         File doc = new File("");
         final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
         int counter = 0;//Contador de puntos para añadir a la lista7
-        
         
             //Obtener el archivo separado por comas
             BufferedReader bufferLectura = null;
@@ -54,14 +53,13 @@ public class TallerEstructuraUnionBusqueda {
                 //Ciclo cuando el usuario ingrese una opción inválida
                 
                 respuesta = StdIn.readInt();
-                sRespuesta = Integer.toString(respuesta);
+                //sRespuesta = Integer.toString(respuesta);
                 switch(respuesta)
                 {
                      case 1: 
                          doc = new File("ejemplos\\datapoints-100.csv");
                          puntos = new Punto2D[100];
                          StdOut.println("Funciona caso 1");
-                         //StdOut.println(puntos.length);
                         break;
                     case 2:
                         doc = new File("ejemplos\\datapoints-120.csv");
@@ -102,10 +100,10 @@ public class TallerEstructuraUnionBusqueda {
                 
                 // Abrir el .csv en buffer de lectura
                 bufferLectura = new BufferedReader(new FileReader(doc)); //ejemplos\\datapoints-100.csv
-
+                
                 // Leer una linea del archivo
                 String linea = bufferLectura.readLine();
-
+                
                 while (linea != null) {
                       // Sepapar la linea leída con el separador definido previamente
                       String[] campos = linea.split(SEPARADOR); 
@@ -116,6 +114,13 @@ public class TallerEstructuraUnionBusqueda {
                       // Volver a leer otra línea del fichero
                       linea = bufferLectura.readLine();
                      }
+                //Se crea una variable donde almacenaremos el tiempo actual antes de realizar la operación
+                long tiempoInicioPrueba = System.currentTimeMillis();
+                //Se crea el conjunto al que se pasa el resultado a imprimir
+                ConjuntoPuntos x = new ConjuntoPuntos(puntos, DMAX);
+                
+                /*Aqui viene toda la parte de impresion de los puntos*/
+                StdOut.println("El tiempo que se tardó en realizar las uniones de puntos es de: " + (System.currentTimeMillis()-tiempoInicioPrueba));
                 
             }catch(Exception error){
                 StdOut.print("An error has been ocurred. Code: " + error);

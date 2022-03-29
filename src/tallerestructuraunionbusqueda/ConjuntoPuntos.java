@@ -100,10 +100,12 @@ public class ConjuntoPuntos {
 
     }
     
+    
+    
     //Recibe el parametro del maximo de distancia para unir
     public void Convertir(double DMAX){
         for(int i = 0; i<n; i++){
-            for(int j = i+1; i<n; i++){
+            for(int j = i+1; j<n; j++){
                 //Se valida que el tamaño este en el rango y que el nodo no esté unido a otro
                 if((conjunto[i].distancia(conjunto[j]) <= DMAX && //Comprobar el rango
                         j == Find(conjunto[j]))){ //Comprobar que el nodo este libre
