@@ -72,7 +72,7 @@ public class TallerEstructuraUnionBusqueda {
                         StdOut.println("Funciona caso 3");
                         break;
                     case 4:
-                        doc = new File("ejemplos\\datapoints-200.csv");
+                        doc = new File("ejemplos\\datapoints-k=2-n=200.csv");
                         puntos = new Punto2D[200];
                         StdOut.println("Funciona caso 4");
                         break;
