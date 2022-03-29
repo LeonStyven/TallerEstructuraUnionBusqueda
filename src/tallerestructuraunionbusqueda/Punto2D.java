@@ -16,8 +16,7 @@ public class Punto2D
 	// Representacion del ADT
 	private double x;
 	private double y;
-        private String representante; 
-        final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
+        
 	
 	// Constructores
 	public Punto2D() {
@@ -39,10 +38,6 @@ public class Punto2D
 	public double getY() {
 		return y;
 	}
-        public String getRepresentante(){
-            return representante;
-        }
-
 	public double distancia(Punto2D p) {
 		return Math.sqrt( (x-p.getX())*(x-p.getX()) + (y-p.getY())*(y-p.getY()) );
 	}
