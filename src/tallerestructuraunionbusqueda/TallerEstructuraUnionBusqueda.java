@@ -22,10 +22,12 @@ public class TallerEstructuraUnionBusqueda {
     public static void main(String[] args) {
         
         //Switch con opciones para determinar tamaño de n de cada vector a crear.
-        String respuesta = "";
+        int respuesta;
+        String sRespuesta;
         Punto2D[] puntos = null; // Arreglo de puntos leidos del archivo
         File doc = new File("");
         final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
+        int counter = 0;//Contador de puntos para añadir a la lista7
         
         
             //Obtener el archivo separado por comas
@@ -36,8 +38,11 @@ public class TallerEstructuraUnionBusqueda {
             //File doc = new File("//ejemplos\\datapoints-100.csv"); 
 
             try{
+                
+                
                 StdOut.println("Para crear el vector, ingrese el número del tamaño que desea según las opciones dadas para el vector de Puntos2D:\n");
                 StdOut.println("Los tamaños soportados son de: \n");
+                do{
                 StdOut.println("1. 100\n");
                 StdOut.println("2. 120\n");
                 StdOut.println("3. 150\n");
@@ -45,45 +50,56 @@ public class TallerEstructuraUnionBusqueda {
                 StdOut.println("5. 1000\n");
                 StdOut.println("6. 2500\n");
                 StdOut.println("7. 5000\n");
-                int counter = 0;//Contador de puntos
+                
                 //Ciclo cuando el usuario ingrese una opción inválida
                 
+                respuesta = StdIn.readInt();
+                sRespuesta = Integer.toString(respuesta);
                 switch(respuesta)
                 {
-                     case "1": 
-                        doc = new File("ejemplos\\datapoints-100.csv");
+                     case 1: 
+                         doc = new File("ejemplos\\datapoints-100.csv");
                          puntos = new Punto2D[100];
+                         StdOut.println("Funciona caso 1");
+                         //StdOut.println(puntos.length);
                         break;
-                    case "2":
+                    case 2:
                         doc = new File("ejemplos\\datapoints-120.csv");
                         puntos = new Punto2D[120];
+                        StdOut.println("Funciona caso 2");
                         break;
-                    case "3":
+                    case 3:
                         doc = new File("ejemplos\\datapoints-150.csv");
                         puntos = new Punto2D[150];
+                        StdOut.println("Funciona caso 3");
                         break;
-                    case "4":
+                    case 4:
                         doc = new File("ejemplos\\datapoints-200.csv");
                         puntos = new Punto2D[200];
+                        StdOut.println("Funciona caso 4");
                         break;
-                    case "5":
+                    case 5:
                         doc = new File("ejemplos\\datapoints-1000.csv");
                         puntos = new Punto2D[1000];
+                        StdOut.println("Funciona caso 5");
                         break;
-                    case "6":
+                    case 6:
                         doc = new File("ejemplos\\datapoints-2500.csv");
                         puntos = new Punto2D[2500];
+                        StdOut.println("Funciona caso 6");
                         break;
-                    case "7":
+                    case 7:
                         doc = new File("ejemplos\\datapoints-5000.csv");
                         puntos = new Punto2D[5000];
+                        
+                        StdOut.println("Funciona caso 7");
                         break;
                     default:
-                        StdOut.println("La opción ingresada es incorrecta");
+                        StdOut.println("\nLa opción ingresada es incorrecta, por favor ingrese una de las opciones válidas\n");
                         break;
                 }
+                }while(!(respuesta>=1 && respuesta<=7)); //Se repite el ciclo mientras no sea un número especificado
                 
-
                 // Abrir el .csv en buffer de lectura
                 bufferLectura = new BufferedReader(new FileReader(doc)); //ejemplos\\datapoints-100.csv
 
