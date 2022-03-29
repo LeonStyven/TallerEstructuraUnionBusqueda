@@ -23,6 +23,7 @@ public class TallerEstructuraUnionBusqueda {
         
         //Switch con opciones para determinar tamaño de n de cada vector a crear.
         int respuesta;
+        String sRespuesta;
         Punto2D[] puntos = null; // Arreglo de puntos leidos del archivo
         File doc = new File("");
         final double DMAX = 0.3; //Se elige la distancia máxima entre los puntos
@@ -53,12 +54,14 @@ public class TallerEstructuraUnionBusqueda {
                 //Ciclo cuando el usuario ingrese una opción inválida
                 
                 respuesta = StdIn.readInt();
+                sRespuesta = Integer.toString(respuesta);
                 switch(respuesta)
                 {
                      case 1: 
                          doc = new File("ejemplos\\datapoints-100.csv");
                          puntos = new Punto2D[100];
                          StdOut.println("Funciona caso 1");
+                         //StdOut.println(puntos.length);
                         break;
                     case 2:
                         doc = new File("ejemplos\\datapoints-120.csv");
